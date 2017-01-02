@@ -15,12 +15,7 @@ export default {
 }
 </script>
 
-<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Crimson+Text:400i'> -->
-
 <style>
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400i);
 * {
 	box-sizing: border-box;
 }
