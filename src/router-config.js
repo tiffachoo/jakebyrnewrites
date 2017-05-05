@@ -10,6 +10,6 @@ export const routes = [{
 	path: '/construction',
 	component: Construction
 }, {
-	path: '/:page',
+	path: '/:pageId',
 	component: Page
 }]
