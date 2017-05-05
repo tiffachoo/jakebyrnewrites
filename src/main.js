@@ -1,22 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import Construction from './components/Construction'
-// import Page from './components/Page'
-
 import VueRouter from 'vue-router'
-// import VueResource from 'vue-resource'
+import VueResource from 'vue-resource'
 
-// Vue.use(VueResource)
+import App from './App'
+import { routes } from './router-config'
+
+Vue.use(VueResource)
 Vue.use(VueRouter)
 
-const routes = [
-	{ path: '/', component: Construction }
-]
-
 const router = new VueRouter({
-	routes
+	routes,
+	mode: 'history'
 })
 
 /* eslint-disable no-new */
