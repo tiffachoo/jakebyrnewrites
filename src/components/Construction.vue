@@ -16,21 +16,23 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .construction {
 	width: 100%;
 	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	padding: 2rem;
 	background: #f7f6e1;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
 	justify-content: center;
+}
+.construction:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, #ffffff 100%);
+	display: flex;
 }
 h1 {
 	position: relative;
@@ -38,6 +40,7 @@ h1 {
 	line-height: 1.35;
 	font-size: 2.25rem;
 	color: white;
+	font-style: italic;
 	mix-blend-mode: exclusion;
 }
 @-webkit-keyframes h1-anim-1 {
@@ -276,13 +279,11 @@ h1:before, h1:after {
 h1:after {
 	left: 2px;
 	text-shadow: -1px 0 red;
-	-webkit-animation: h1-anim-1 2s infinite linear alternate-reverse;
 	animation: h1-anim-1 2s infinite linear alternate-reverse;
 }
 h1:before {
 	left: -2px;
 	text-shadow: 2px 0 blue;
-	-webkit-animation: h1-anim-2 3s infinite linear alternate-reverse;
 	animation: h1-anim-2 3s infinite linear alternate-reverse;
 }
 </style>
