@@ -17,7 +17,6 @@ const router = new VueRouter({
 	mode: 'history'
 })
 
-/* eslint-disable no-new */
 new Vue({
 	router,
 	render: h => h(App)

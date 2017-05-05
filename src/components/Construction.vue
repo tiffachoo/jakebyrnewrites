@@ -25,23 +25,14 @@ export default {
 	background: #f7f6e1;
 	align-items: center;
 	justify-content: center;
-}
-.construction:before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, #ffffff 100%);
-	display: flex;
-}
-h1 {
-	position: relative;
-	max-width: 600px;
-	line-height: 1.35;
-	font-size: 2.25rem;
-	color: white;
-	font-style: italic;
-	mix-blend-mode: exclusion;
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, #ffffff 100%);
+		display: flex;
+	}
 }
 @-webkit-keyframes h1-anim-1 {
 	0% {
@@ -267,23 +258,32 @@ h1 {
 		clip: rect(14px, 600px, 96px, 0);
 	}
 }
-h1:before, h1:after {
-	content: attr(data-text);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background: black;
-	clip: rect(0, 0, 0, 0);
-}
-h1:after {
-	left: 2px;
-	text-shadow: -1px 0 red;
-	animation: h1-anim-1 2s infinite linear alternate-reverse;
-}
-h1:before {
-	left: -2px;
-	text-shadow: 2px 0 blue;
-	animation: h1-anim-2 3s infinite linear alternate-reverse;
+h1 {
+	position: relative;
+	max-width: 600px;
+	line-height: 1.35;
+	font-size: 2.25rem;
+	color: white;
+	font-style: italic;
+	mix-blend-mode: exclusion;
+	&:before, &:after {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: black;
+		clip: rect(0, 0, 0, 0);
+	}
+	&:after {
+		left: 2px;
+		text-shadow: -1px 0 red;
+		animation: h1-anim-1 2s infinite linear alternate-reverse;
+	}
+	&:before {
+		left: -2px;
+		text-shadow: 2px 0 blue;
+		animation: h1-anim-2 3s infinite linear alternate-reverse;
+	}
 }
 </style>

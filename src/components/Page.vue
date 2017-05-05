@@ -60,5 +60,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.page-section {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding: 2rem;
+	background: #f7f6e1;
+	align-items: center;
+	justify-content: center;
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, #ffffff 100%);
+		display: flex;
+	}
+}
 </style>
