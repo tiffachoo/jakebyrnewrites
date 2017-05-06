@@ -1,15 +1,18 @@
-import Construction from './components/Construction'
-import Page from './components/Page'
+// import Construction from './components/Construction'
+const Construction = resolve => require(['./components/Construction'], resolve)
+// import Page from './components/Page'
+const Page = resolve => require(['./components/Page'], resolve)
 
 export const routes = [{
-	name: 'home',
-	path: '/',
-	redirect: 'construction'
-}, {
 	name: 'construction',
 	path: '/construction',
 	component: Construction
 }, {
-	path: '/:pageId',
-	component: Page
+	name: 'home',
+	path: '',
+	component: Page,
+	children: [{
+		path: '/:pageId'
+	}],
+	redirect: 'construction'
 }]

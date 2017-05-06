@@ -9,8 +9,8 @@
 </template>
 
 <script>
-const apiUrl = 'https://jsonplaceholder.typicode.com'
-const apiRoute = 'posts'
+const apiUrl = 'http://localhost:3000/api' // https://jsonplaceholder.typicode.com
+const apiRoute = 'pages' // 'posts'
 
 function getPage (pageId) {
 	const resourceUrl = [apiUrl, apiRoute, pageId].join('/')
@@ -47,7 +47,7 @@ export default {
 		this.id = null
 		this.title = null
 		this.body = null
-		getPage(to.params.pageId, (page) => {
+		getPage(to.params.pageId).then(page => {
 			this.setData(page)
 			next()
 		})

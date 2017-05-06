@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div class="app">
 		<navigation :items="navItems"></navigation>
 		<router-view></router-view>
 	</div>
@@ -41,7 +41,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-#app {
+.app {
 	width: 100%;
 	height: 100%;
 	display: flex;
