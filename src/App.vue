@@ -1,12 +1,29 @@
 <template>
 	<div id="app">
+		<navigation :items="navItems"></navigation>
 		<router-view></router-view>
 	</div>
 </template>
 
 <script>
+import Navigation from './shared-components/Navigation'
+
 export default {
-	name: 'app'
+	name: 'app',
+	data () {
+		return {
+			navItems: [{
+				name: 'WHO',
+				link: 'bio'
+			}, {
+				name: 'WORKS',
+				link: 'works'
+			}]
+		}
+	},
+	components: {
+		Navigation
+	}
 }
 </script>
 

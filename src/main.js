@@ -4,12 +4,10 @@ import 'isomorphic-fetch'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
 
 import App from './App'
 import { routes } from './router-config'
 
-Vue.use(VueResource)
 Vue.use(VueRouter)
 
 const router = new VueRouter({
