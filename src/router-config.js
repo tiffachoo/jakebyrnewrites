@@ -9,10 +9,15 @@ export const routes = [{
 	component: Construction
 }, {
 	name: 'home',
-	path: '',
+	path: '/',
 	component: Page,
-	children: [{
-		path: '/:pageId'
-	}],
+	props: {
+		page: {
+			title: '☞'
+		}
+	},
+	// children: [{
+	// 	path: '/:pageId'
+	// }],
 	redirect: 'construction'
 }]

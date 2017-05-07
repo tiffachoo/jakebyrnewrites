@@ -1,6 +1,11 @@
 <template>
 	<nav class="navigation">
 		<ul>
+			<li><router-link
+				to="/"
+				active-class="active">
+				☞
+			</router-link></li>
 			<li v-for="item in items">
 			<router-link
 				:to="item.link"

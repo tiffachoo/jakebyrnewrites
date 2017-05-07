@@ -42,6 +42,7 @@ body {
 	font-family: 'Cormorant Garamond', Garamond, serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
 }
 .app {
 	width: 100%;
@@ -55,13 +56,14 @@ body {
 // 	animation-duration: 3s;
 // }
 .glitch-leave-active {
+	position: absolute;
+	z-index: 100;
 	animation-name: glitch;
 	// animation-fill-mode: forwards;
 	animation-duration: 3s;
 }
 @keyframes glitch {
 	0% {
-		position: absolute;
 		opacity: 1;
 		transform: skewX(0deg);
 	}

@@ -35,16 +35,17 @@
 
 export default {
 	name: 'page',
-	data () {
-		return {
-			loading: false,
-			page: null,
-			error: null
-		}
-	},
-	created () {
-		this.getPage()
-	},
+	props: ['loading', 'page', 'error']
+	// data () {
+	// 	return {
+	// 		loading: false,
+	// 		page: null,
+	// 		error: null
+	// 	}
+	// },
+	// created () {
+	// 	this.getPage()
+	// },
 	// beforeRouteEnter (to, from, next) {
 	// 	getPage(to.params.pageId)
 	// 		.then(page => {
@@ -60,36 +61,35 @@ export default {
 	// 		next()
 	// 	})
 	// },
-	watch: {
-		'$route': 'getPage'
-	},
-	methods: {
-		getPage () {
-			this.error = this.page = null
-			this.loading = true
-			const resourceUrl = [apiUrl, apiRoute, this.$route.params.pageId].join('/')
-			/* eslint-disable no-undef */
-			return fetch(resourceUrl)
-				.then(response => {
-					this.loading = false
-					if (response.status !== 200) {
-						this.error = `Looks like there was a problem. Status Code: ${response.status}`
-						return
-					}
-					return response.json()
-				})
-				.then(data => {
-					this.page = data
-				})
-				.catch(err => {
-					this.error = `Fetch Error :-S\n${err}`
-				})
-		}// ,
+	// watch: {
+	// 	'$route': 'getPage'
+	// },
+	// methods: {
+	// 	getPage () {
+	// 		this.error = this.page = null
+	// 		this.loading = true
 	// 		const resourceUrl = [apiUrl, pagesRoute, this.$route.params.pageId].join('/')
+	// 		/* eslint-disable no-undef */
+	// 		return fetch(resourceUrl)
+	// 			.then(response => {
+	// 				this.loading = false
+	// 				if (response.status !== 200) {
+	// 					this.error = `Looks like there was a problem. Status Code: ${response.status}`
+	// 					return
+	// 				}
+	// 				return response.json()
+	// 			})
+	// 			.then(data => {
+	// 				this.page = data
+	// 			})
+	// 			.catch(err => {
+	// 				this.error = `Fetch Error :-S\n${err}`
+	// 			})
+	// 	}// ,
 		// setData ({id, title, body}) {
 		// 	Object.assign(this, {id, title, body})
 		// }
-	}
+	// }
 }
 </script>
 
