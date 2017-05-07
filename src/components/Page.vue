@@ -1,10 +1,16 @@
 <template>
 	<section class="page-section">
-		<article>
-			<h1>{{ title }}</h1>
-			<h2><small>Page ID: {{ id }}</small></h2>
-			<p>{{ body }}</p>
+		<div v-if="loading" class="loading">
+			Loading...
+		</div>
+		<article v-if="page" class="page-content">
+			<h1>{{ page.title }}</h1>
+			<h2><small>Page ID: {{ page.id }}</small></h2>
+			<p>{{ page.body }}</p>
 		</article>
+		<div v-if="error" class="error">
+			{{ error }}
+		</div>
 	</section>
 </template>
 
@@ -12,50 +18,77 @@
 const apiUrl = 'http://localhost:3000/api' // https://jsonplaceholder.typicode.com
 const apiRoute = 'pages' // 'posts'
 
-function getPage (pageId) {
-	const resourceUrl = [apiUrl, apiRoute, pageId].join('/')
-	/* eslint-disable no-undef */
-	return fetch(resourceUrl)
-		.then(response => {
-			if (response.status !== 200) {
-				console.warn(`Looks like there was a problem. Status Code: ${response.status}`)
-				return
-			}
-			return response.json()
-		})
-		.catch(err => {
-			console.error('Fetch Error :-S', err)
-		})
-}
+// function getPage (pageId) {
+// 	const resourceUrl = [apiUrl, apiRoute, pageId].join('/')
+// 	/* eslint-disable no-undef */
+// 	return fetch(resourceUrl)
+// 		.then(response => {
+// 			if (response.status !== 200) {
+// 				console.warn(`Looks like there was a problem. Status Code: ${response.status}`)
+// 				return
+// 			}
+// 			return response.json()
+// 		})
+// 		.catch(err => {
+// 			console.error('Fetch Error :-S', err)
+// 		})
+// }
 
 export default {
 	name: 'page',
 	data () {
 		return {
-			id: null,
-			title: null,
-			body: null
+			loading: false,
+			page: null,
+			error: null
 		}
 	},
-	beforeRouteEnter (to, from, next) {
-		getPage(to.params.pageId)
-			.then(page => {
-				next(vm => vm.setData(page))
-			})
+	created () {
+		this.getPage()
 	},
-	beforeRouteUpdate (to, from, next) {
-		this.id = null
-		this.title = null
-		this.body = null
-		getPage(to.params.pageId).then(page => {
-			this.setData(page)
-			next()
-		})
+	// beforeRouteEnter (to, from, next) {
+	// 	getPage(to.params.pageId)
+	// 		.then(page => {
+	// 			next(vm => vm.setData(page))
+	// 		})
+	// },
+	// beforeRouteUpdate (to, from, next) {
+	// 	this.id = null
+	// 	this.title = null
+	// 	this.body = null
+	// 	getPage(to.params.pageId).then(page => {
+	// 		this.setData(page)
+	// 		next()
+	// 	})
+	// },
+	watch: {
+		'$route': 'getPage'
 	},
 	methods: {
-		setData ({id, title, body}) {
-			Object.assign(this, {id, title, body})
-		}
+		getPage () {
+			this.error = this.page = null
+			this.loading = true
+			const resourceUrl = [apiUrl, apiRoute, this.$route.params.pageId].join('/')
+			/* eslint-disable no-undef */
+			return fetch(resourceUrl)
+				.then(response => {
+					this.loading = false
+					if (response.status !== 200) {
+						this.error = `Looks like there was a problem. Status Code: ${response.status}`
+						return
+					}
+					return response.json()
+				})
+				.then(data => {
+					this.page = data
+				})
+				.catch(err => {
+					this.error = `Fetch Error :-S\n${err}`
+				})
+		}// ,
+		// setData ({id, title, body}) {
+		// 	Object.assign(this, {id, title, body})
+		// }
 	}
 }
 </script>
