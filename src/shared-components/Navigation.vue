@@ -23,5 +23,22 @@ export default {
 .navigation {
 	position: fixed;
 	z-index: 10;
+	text-align: left;
+	ul {
+		list-style: none;
+	}
+	li {
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+	}
+	a {
+		text-decoration: none;
+		&.active {
+			background: black;
+			color: white;
+		}
+	}
 }
 </style>
