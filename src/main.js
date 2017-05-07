@@ -7,6 +7,7 @@ import VueRouter from 'vue-router'
 
 import App from './App'
 import { routes } from './router-config'
+import { apiUrl, pagesRoute } from './constants'
 
 Vue.use(VueRouter)
 

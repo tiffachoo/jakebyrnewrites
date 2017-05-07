@@ -15,8 +15,7 @@
 </template>
 
 <script>
-const apiUrl = 'http://localhost:3000/api' // https://jsonplaceholder.typicode.com
-const apiRoute = 'pages' // 'posts'
+// import { apiUrl, pagesRoute } from '../constants'
 
 // function getPage (pageId) {
 // 	const resourceUrl = [apiUrl, apiRoute, pageId].join('/')
@@ -86,6 +85,7 @@ export default {
 					this.error = `Fetch Error :-S\n${err}`
 				})
 		}// ,
+	// 		const resourceUrl = [apiUrl, pagesRoute, this.$route.params.pageId].join('/')
 		// setData ({id, title, body}) {
 		// 	Object.assign(this, {id, title, body})
 		// }
