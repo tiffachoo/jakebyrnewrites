@@ -16,8 +16,5 @@ export const routes = [{
 			title: '☞'
 		}
 	},
-	// children: [{
-	// 	path: '/:pageId'
-	// }],
 	redirect: 'construction'
 }]

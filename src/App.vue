@@ -2,17 +2,46 @@
 	<div class="app">
 		<navigation :items="navItems"></navigation>
 	  <transition name="glitch">
-			<router-view></router-view>
+			<router-view :key="$route.fullPath"></router-view>
 		</transition>
 	</div>
 </template>
 
 <script>
 import Navigation from './shared-components/Navigation'
+import { apiUrl, pagesRoute } from './constants'
+const Page = resolve => require(['./components/Page'], resolve)
 
 export default {
 	name: 'app',
 	data () {
+		const resourceUrl = [apiUrl, pagesRoute].join('/')
+		/* eslint-disable no-undef */
+		fetch(resourceUrl)
+			.then(response => {
+				if (response.status !== 200) {
+					console.warn(`Looks like there was a problem. Status Code: ${response.status}`)
+					return
+				}
+				return response.json()
+			})
+			.then(data => {
+				const routes = data.map(page => {
+					return {
+						name: page.link,
+						path: `/${page.link}`,
+						component: Page,
+						props: {
+							page
+						}
+					}
+				})
+				console.log(routes)
+				this.$router.addRoutes(routes)
+			})
+			.catch(err => {
+				console.error(`Fetch Error :-S\n${err}`)
+			})
 		return {
 			navItems: [{
 				name: 'WHO',
