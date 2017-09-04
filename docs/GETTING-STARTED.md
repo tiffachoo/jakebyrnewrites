@@ -1,6 +1,6 @@
 # You don't have to set this up yourself
 
-The following steps describe what is needed to set this project up manually. **You can also follow our [Interactive getting started CLI tutorial](https://www.contentful.com/developers/docs/tutorials/general/get-started/) to save some time.** ;)
+The following steps describe what is needed to set this project up manually. **You can also follow the [Contentful Interactive getting started CLI tutorial](https://www.contentful.com/developers/docs/tutorials/general/get-started/) to save some time.** ;)
 
 ## Getting started
 
@@ -9,9 +9,9 @@ To get you started you have to be registered at [Contentful](https://www.content
 ### Clone the repo and install dependencies
 
 ```bash
-$ git clone git@github.com:contentful/blog-in-5-minutes.git
-$ cd blog-in-5-minutes
-$ npm install
+$ git clone git@github.com:tiffachoo/jakebyrnewrites.git
+$ cd jakebyrnewrites
+$ yarn # ...or "npm install" I guess
 ```
 
 ### Get needed config data from Contentful
