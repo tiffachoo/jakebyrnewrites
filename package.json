@@ -1,8 +1,11 @@
 {
-  "name": "contentful-blog-in-5-min",
-  "version": "1.0.3",
-  "description": "A static blog based on Contentful",
-  "author": "stefan judis <stefanjudis@gmail.com>",
+  "name": "jakebyrnewrites",
+  "version": "1.0.0",
+  "description": "A website for Jake, he's a poet",
+  "contributors": [
+    "Tiffany Choong <tiff.a.choong@gmail.com",
+    "Jackson Teather <jacksonteather@hotmail.com"
+  ],
   "private": true,
   "dependencies": {
     "contentful": "^4.3.0",
