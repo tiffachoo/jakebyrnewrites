@@ -1,14 +1,14 @@
-# blog-in-5-min
+# jakebyrnewrites
 
-> A statically rendered blog based on Contentful
+> Jake Byrne / poet[aster]
 
-![Preview of the Blog](./docs/images/home.png "Preview of the Blog")
+![phallus](./static/favicon.png "The mighty Phallus")
 
-This project is the result of our [Interactive getting started CLI tutorial](https://www.contentful.com/developers/docs/tutorials/general/get-started/). The [Contentful CLI](https://www.npmjs.com/package/contentful-cli) helps you automating things like the creation of spaces and access tokens. We recommend using it to bootstrap this project.
+This project is based on the [Contentful CLI blog template](https://www.contentful.com/developers/docs/tutorials/general/get-started/). Read more about the CLI [here](https://www.npmjs.com/package/contentful-cli).
 
 ## Introduction
 
-The project can be used as a base to get you started with Contentful. It includes the following features:
+This project's build system includes the following features:
 
 - static site generation
 - dynamic server side rendering for development
@@ -18,7 +18,7 @@ The project can be used as a base to get you started with Contentful. It include
 
 ## Getting started
 
-In case you want to see how to set up a project yourself please check out [the getting started guide](./docs/GETTING-STARTED.md).
+To set this project up for development please check out [the getting started guide](./docs/GETTING-STARTED.md).
 
 ## Technical stack
 
