@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <a href="/" class="logo">Jake</a>
+    <a href="/" class="logo">Jake Byrne</a>
     <nav role="navigation" class="nav-top">
       <ul class="nav-links">
         <li class="nav-link" v-if="!/\/.*?\/.*/.test(route.path)" v-for="route in this.$router.options.routes">
@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
+    z-index: 333;
     top: $body-border-width;
     left: $body-border-width;
     width: calc(100% - (#{$body-border-width} * 2));
