@@ -1,12 +1,12 @@
 <template>
   <div>
     <Navigation></Navigation>
-    
-    <div class="page-info wrapper">
+
+    <div class="hero">
       <h2>Blog</h2>
     </div>
 
-    <section class="body-container">
+    <section class="container">
       <ul class="items-list wrapper">
         <li class="item" v-for="post in posts">
           <article-preview :post="post"></article-preview>

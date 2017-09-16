@@ -2,7 +2,7 @@
   <div>
     <Navigation></Navigation>
     
-    <div class="page-info wrapper">
+    <div class="hero">
       <h2>Works</h2>
     </div>
 
@@ -10,7 +10,7 @@
       <ul class="items-list wrapper">
         <li class="item" v-for="post in posts">
           <h3>{{post.fields.title}}</h3>
-          {{post.fields.publisher}}
+          <em>{{post.fields.publisher}}</em>
           <a :href="post.fields.publishedLink" target="_blank">{{post.fields.publishedIn}}</a>
         </li>
       </ul>

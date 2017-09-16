@@ -16,23 +16,34 @@
   // }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../assets/scss/variables";
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: stretch;
-    background-color: black;
-    font-family: garamond;
-    font-size: 16px;
-    line-height: 1.875em;
+    background-color: $body-font-color;
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    line-height: $body-line-height;
+
+    > div {
+      flex: 1 0 auto;
+      margin: $body-border-width;
+      padding-top: 150px;
+      background-color: $white;
+    }
   }
 
-  body > div {
-    flex: 1 0 auto;
-    margin: 20px;
-    background-color: white;
+  h2 {
+    font-size: 4em;
+    line-height: 1.25em;
+  }
+  h3 {
+    font-size: 2.5em;
+    line-height: 1.25em;
   }
 
 </style>
