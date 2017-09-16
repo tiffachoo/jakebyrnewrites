@@ -2,6 +2,7 @@ const {getConfigForKeys} = require('./lib/config.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
   'CTF_WORK_TYPE_ID',
+  'CTF_EVENT_TYPE_ID',
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN',
   'CTF_CMA_ACCESS_TOKEN',
@@ -109,7 +110,8 @@ const config = {
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
     CTF_PERSON_ID: ctfConfig.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
-    CTF_WORK_TYPE_ID: ctfConfig.CTF_WORK_TYPE_ID
+    CTF_WORK_TYPE_ID: ctfConfig.CTF_WORK_TYPE_ID,
+    CTF_EVENT_TYPE_ID: ctfConfig.CTF_EVENT_TYPE_ID
   }
 }
 
