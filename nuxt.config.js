@@ -15,6 +15,39 @@ const cmaClient = cmaContentful.createClient({
   accessToken: ctfConfig.CTF_CMA_ACCESS_TOKEN
 })
 
+const routeNameMap = [
+  {
+    id: 'index',
+    name: 'WHO',
+    order: 0
+  },
+  {
+    id: 'work',
+    name: 'WORKS',
+    order: 1
+  },
+  // {
+  //   id: 'contact',
+  //   name: 'TO',
+  //   order: 2
+  // },
+  {
+    id: 'events',
+    name: 'SEE',
+    order: 3
+  },
+  {
+    id: 'blog',
+    name: 'THE',
+    order: 4
+  }
+  // {
+  //   id: '🎩',
+  //   name: 'MIND',
+  //   order: 5
+  // }
+]
+
 const config = {
   /*
   ** Headers of the page
@@ -97,6 +130,19 @@ const config = {
           // map all possible tags to URLs
           ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
         ]
+      })
+    }
+  },
+
+  /*
+  ** Extend routing configuration
+  */
+  router: {
+    extendRoutes (routes, resolve) {
+      console.log(routes)
+      routeNameMap.forEach((newRoute, i) => {
+        const oldRoute = routes.find(route => route.name === newRoute.id)
+        routes[i] = Object.assign({}, oldRoute || {}, newRoute)
       })
     }
   },

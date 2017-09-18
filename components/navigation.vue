@@ -3,13 +3,30 @@
     <a href="/" class="logo">Jake Byrne</a>
     <nav role="navigation" class="nav-top">
       <ul class="nav-links">
-        <li class="nav-link" v-if="!/\/.*?\/.*/.test(route.path)" v-for="route in this.$router.options.routes">
+        <li class="nav-link" v-if="!/\/.*?\/.*/.test(route.path)" v-for="route in this.$router.options.routes" v-test>
           <nuxt-link :to="{ name: route.name }">{{ route.name.charAt(0).toUpperCase() + route.name.slice(1) }}</nuxt-link>
         </li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+  export default {
+    directives: {
+      test: {
+        bind: function (el) {
+          el.addEventListener('mouseover', () => {
+            el.style.backgroundColor = 'yellow'
+          })
+          el.addEventListener('mouseout', () => {
+            el.style.backgroundColor = null
+          })
+        }
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
   @import "../assets/scss/variables";
