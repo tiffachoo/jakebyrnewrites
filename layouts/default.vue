@@ -32,7 +32,6 @@
     > div {
       flex: 1 0 auto;
       margin: $body-border-width;
-      padding-top: 150px;
       background-color: $white;
     }
   }
@@ -44,6 +43,25 @@
   h3 {
     font-size: 2.5em;
     line-height: 1.25em;
+  }
+
+  a {
+    border-bottom: 1px dotted;
+    text-decoration: none;
+    color: $link-color; 
+
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
+  .wrap {
+    padding: 120px 0 100px;
+  }
+
+  .hero {
+    @extend %main-container;
+    // margin-bottom: $space-main-lg;
   }
 
 </style>

@@ -4,6 +4,8 @@
 
 $black: #000;
 $white: #fff;
+$grey: #666;
+$grey-light: #bbb;
 
 $garamond: 'Cormorant Garamond', Garamond, serif;
 
@@ -11,12 +13,16 @@ $garamond: 'Cormorant Garamond', Garamond, serif;
 // THEME VARS
 
 $primary-color: $black;
+$primary-color-tint-1: $grey;
+$primary-color-tint-2: $grey-light;
 $secondary-color: $white;
 
 $primary-font-serif: $garamond;
 
 
 // SITE VARS
+
+$body-max-width: 1170px;
 
 $body-font-size: 16px;
 $body-line-height: 1.875em;
@@ -25,4 +31,16 @@ $body-font-family: $primary-font-serif;
 
 $body-border-width: 20px;
 
-$pad-main: 20px;
+$link-color: cyan;
+
+$space-main-lg: 60px;
+$space-main: 30px;
+$space-main-sm: 15px;
+
+
+// EXTENDS
+
+%main-container {
+	margin: 0 auto;
+	max-width: $body-max-width;
+}
