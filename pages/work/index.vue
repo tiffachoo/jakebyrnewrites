@@ -53,3 +53,56 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../assets/scss/variables";
+
+  .list {
+    &-items {
+
+    }
+
+    &-item {
+      position: relative;
+      margin-bottom: $space-main;
+      padding-bottom: $space-main;
+      
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40%;
+      }
+      &::before {
+        height: 1px;
+        background-color: $primary-color-tint-2;
+      }
+      &::after {
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        background-color: $primary-color;
+        transition: 0.4s ease-in;
+      }
+
+      &:hover {
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .item {
+    &-italic {
+      margin-right: $space-main-sm;
+    }
+  }
+
+  .item-wrap {
+    @extend %main-container;
+    padding-left: 30%;
+  }
+</style>
