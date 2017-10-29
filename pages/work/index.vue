@@ -7,11 +7,23 @@
     </div>
 
     <section class="container">
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
-          <h3>{{post.fields.title}}</h3>
-          <em>{{post.fields.publisher}}</em>
-          <a :href="post.fields.publishedLink" target="_blank">{{post.fields.publishedIn}}</a>
+      <ul class="list-items">
+        <li class="list-item" v-for="post in posts">
+          <div class="item-wrap">
+            <h3>{{post.fields.title}}</h3>
+            <em 
+              v-if="post.fields.publisher"
+              class="item-italic">
+              {{post.fields.publisher}}
+            </em>
+            <a
+              v-if="post.fields.publishedLink" 
+              class="item-link"
+              target="_blank"
+              :href="post.fields.publishedLink">
+              {{post.fields.publishedIn}}
+            </a>
+          </div>
         </li>
       </ul>
     </section>
