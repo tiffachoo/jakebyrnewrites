@@ -67,31 +67,7 @@ export default {
       margin-bottom: $space-main;
       padding-bottom: $space-main;
       
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 40%;
-      }
-      &::before {
-        height: 1px;
-        background-color: $primary-color-tint-2;
-      }
-      &::after {
-        height: 1px;
-        transform: scaleX(0);
-        transform-origin: left center;
-        background-color: $primary-color;
-        transition: 0.4s ease-in;
-      }
-
-      &:hover {
-        &:after {
-          transform: scaleX(1);
-        }
-      }
+      @include line-hover(40%);
     }
   }
 
@@ -103,6 +79,6 @@ export default {
 
   .work-item-wrap {
     @extend %main-container;
-    padding-left: 30%;
+    padding-left: $space-offset-left;
   }
 </style>

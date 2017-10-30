@@ -50,6 +50,8 @@ $space-main: 30px;
 $space-main-sm: 15px;
 $space-gutter: 15px;
 
+$space-offset-left: 30%;
+
 
 // EXTENDS
 
@@ -69,4 +71,32 @@ $space-gutter: 15px;
 	width: calc(100% + 0.75em);
 	height: $border-width-text;
 	background-color: $color;
+}
+
+@mixin line-hover($width) {
+	&::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: $width;
+  }
+  &::before {
+    height: 1px;
+    background-color: $primary-color-tint-2;
+  }
+  &::after {
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    background-color: $primary-color;
+    transition: 0.4s ease-in;
+  }
+
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
 }
