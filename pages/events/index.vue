@@ -3,21 +3,33 @@
     <Navigation></Navigation>
     
     <div class="hero">
-      <h2>See</h2>
+      <h2 class="hero-header">See</h2>
     </div>
 
-    <section class="container">
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
-          <h3>{{post.fields.name}}</h3>
-          <span>{{post.fields.date}}</span>
-          {{post.fields.venue}}
-          {{post.fields.location}}
-          {{post.fields.type}}
-          {{post.fields.cost}}
-          {{post.fields.media}}
+    <section class="container-fluid">
+      <ul class="event-items">
+        <li class="event-item" v-for="post in posts">
+          <div class="event-item-wrap">
+            <div class="item-left">
+              <h3>{{post.fields.name}}</h3>
+              <span>
+                <template v-if="post.fields.type">
+                  {{post.fields.type}}
+                  @
+                </template>
+                  {{post.fields.venue}}
+              </span>
+            </div>
+            <div class="item-right">
+              <time>{{post.fields.date}}</time>
+            </div>
+          </div>
         </li>
       </ul>
+    </section>
+
+    <section class="container">
+      <h3>Past events</h3>
     </section>
 
   </div>
@@ -45,3 +57,27 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../assets/scss/variables";
+
+  .event {
+    &-items {
+    }
+
+    &-item {
+      position: relative;
+      margin-bottom: $space-main;
+      padding-bottom: $space-main;
+      @include line-hover(50%);
+    }
+  }
+
+  .event-item-wrap {
+    @extend %main-container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: $space-offset-left;
+  }
+</style>
