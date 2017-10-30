@@ -3,13 +3,13 @@
     <Navigation></Navigation>
     
     <div class="hero">
-      <h2>Works</h2>
+      <h2 class="hero-header">Works</h2>
     </div>
 
-    <section class="container">
-      <ul class="list-items">
-        <li class="list-item" v-for="post in posts">
-          <div class="item-wrap">
+    <section class="container-fluid">
+      <ul class="work-items">
+        <li class="work-item" v-for="post in posts">
+          <div class="work-item-wrap">
             <h3>{{post.fields.title}}</h3>
             <em 
               v-if="post.fields.publisher"
@@ -18,7 +18,7 @@
             </em>
             <a
               v-if="post.fields.publishedLink" 
-              class="item-link"
+              class="link-fancy item-link"
               target="_blank"
               :href="post.fields.publishedLink">
               {{post.fields.publishedIn}}
@@ -57,7 +57,7 @@ export default {
 <style lang="scss">
   @import "../../assets/scss/variables";
 
-  .list {
+  .work {
     &-items {
 
     }
@@ -101,7 +101,7 @@ export default {
     }
   }
 
-  .item-wrap {
+  .work-item-wrap {
     @extend %main-container;
     padding-left: 30%;
   }
