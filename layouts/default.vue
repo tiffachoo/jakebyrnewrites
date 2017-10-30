@@ -128,6 +128,10 @@
         background-color: $tertiary-color;
       }
     }
+
+    &-spaced {
+      margin-bottom: $space-main-lg;
+    }
   }
 
 </style>

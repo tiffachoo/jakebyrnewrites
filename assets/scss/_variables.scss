@@ -57,3 +57,16 @@ $space-gutter: 15px;
 	margin: 0 auto;
 	max-width: $body-max-width;
 }
+
+
+// MIXINS
+
+@mixin line-decoration($color) {
+	position: absolute;
+	z-index: -1;
+	bottom: $border-width-text-offset;
+	left: 0;
+	width: calc(100% + 0.75em);
+	height: $border-width-text;
+	background-color: $color;
+}

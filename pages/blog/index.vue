@@ -2,13 +2,13 @@
   <div>
     <Navigation></Navigation>
 
-    <div class="hero">
-      <h2>Blog</h2>
+    <div class="hero hero-spaced">
+      <h2 class="hero-header">Blog</h2>
     </div>
 
     <section class="container">
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
+      <ul class="grid blog-items">
+        <li class="grid-col-50 blog-item" v-for="post in posts">
           <article-preview :post="post"></article-preview>
         </li>
       </ul>
@@ -41,3 +41,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../assets/scss/variables";
+
+  .blog {
+    &-items {
+    }
+
+    &-item {
+      
+    }
+  }
+</style>
