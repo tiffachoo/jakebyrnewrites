@@ -76,15 +76,9 @@
 
     &::after {
       content: '';
-      position: absolute;
-      z-index: -1;
-      bottom: $border-width-text-offset;
-      left: 0;
-      width: 100%;
-      height: $border-width-text;
+      @include line-decoration($link-color);
       transform: scaleY(0);
       transform-origin: bottom center;
-      background-color: $link-color;
       transition: 0.25s;
     }
   }
@@ -119,13 +113,7 @@
 
       &::after {
         content: '';
-        position: absolute;
-        z-index: -1;
-        bottom: $border-width-text-offset;
-        left: 0;
-        width: calc(100% + 0.75em);
-        height: $border-width-text;
-        background-color: $tertiary-color;
+        @include line-decoration($tertiary-color);
       }
     }
 
