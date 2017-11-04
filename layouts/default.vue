@@ -104,6 +104,8 @@
 
   .hero {
     @extend %main-container;
+    position: fixed;
+    z-index: 2;
 
     &-header { 
       display: inline-block;
