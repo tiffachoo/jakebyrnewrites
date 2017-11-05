@@ -1,32 +1,17 @@
 <template>
   <div>
-    <header class="article header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <a href="/" class="person-name">John Doe</a>
-          <Navigation></Navigation>
-        </div>
-      </div>
-      <div>
-        <img
-          :src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
-          :srcset="`${post.fields.heroImage.fields.file.url}?w=350&h=87&fit=fill 350w, ${post.fields.heroImage.fields.file.url}?w=1000&h=250&fit=fill 1000w, ${post.fields.heroImage.fields.file.url}?w=2000&h=500&fit=fill 2000w`"
-          size="100vw"
-          :alt="post.fields.heroImage.fields.description"
-        >
-      </div>
-    </header>
+    <Navigation></Navigation>
 
-    <section class="body-container">
-      <main class="wrapper">
-        <div class="headline">
-          <time class="tiny">{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
-          <h1>{{ post.fields.title }}</h1>
-        </div>
-        <div class="copy">
-          <vue-markdown>{{post.fields.body}}</vue-markdown>
-        </div>
-      </main>
+    <div class="hero">
+      <h2 class="hero-header">{{ post.fields.title }}</h2>
+      <br/>
+      <time class="hero-small-text">{{ (new Date(post.fields.publishDate)).toDateString() }}</time>
+    </div>
+
+    <section class="container">
+      <div class="blog-body">
+        <vue-markdown>{{post.fields.body}}</vue-markdown>
+      </div>
     </section>
 
   </div>
@@ -58,40 +43,45 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../assets/scss/variables";
 
-.foreground .page-bar {
-  border-bottom: 0;
-}
+  .blog-body {
+    padding: 0 $space-main;
 
-.headline {
-  padding: 3em 0 0;
-}
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    }
 
-.headline h1 {
-  font-size: 3.5em;
-}
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 2.25em;
+    }
+    h3 {
+      font-size: 2.125em;
+    }
+    h4 {
+      font-size: 1.75em;
+    }
+    h5 {
+      font-size: 1.5em;
+    }
 
-.copy {
-  padding-bottom: 7em;
-}
+    h1, h2, h3, h4 {
+      margin-bottom: 0.125em;
+    }
 
-.copy *:not(div) {
-  margin: 2em 0 1em;
-}
+    p {
+      margin-bottom: 1.5em;
 
-.copy h3 {
-  font-size: 1.35em;
-}
+      @media (min-width: $sm) {
+        font-size: 1.125em;
+        line-height: 2em;
+      }
+    }
+  }
 
-.copy ul {
-  margin: 0;
-  padding-left: 1em;
-  list-style: disc;
-}
-
-.copy li {
-  margin: 0;
-}
 
 </style>

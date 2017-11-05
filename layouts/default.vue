@@ -165,6 +165,11 @@
         left: -$space-main;
       }
     }
+
+    &-small-text {
+      font-style: italic;
+      font-size: 1.125em;
+    }
   }
 
 </style>

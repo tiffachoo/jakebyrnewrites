@@ -1,23 +1,16 @@
 <template>
   <div>
-    <header class="tag-page header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <a href="/" class="person-name">John Doe</a>
-          <Navigation></Navigation>
-        </div>
-        <div class="page-info wrapper">
-          <h2>#{{ tag }}</h2>
-        </div>
-      </div>
-    </header>
+    <Navigation></Navigation>
 
-    <section class="body-container">
-      <div class="items-bar wrapper">
-        <h2>All articles tagged #{{ tag }} ({{ posts.length }})</h2>
-      </div>
-      <ul class="items-list wrapper">
-        <li class="item" v-for="post in posts">
+    <div class="hero">
+      <h2 class="hero-header">#{{ tag }}</h2>
+      <br/>
+      <span class="hero-small-text">{{ posts.length }} blog entr{{ pluralizeY }} tagged</span>
+    </div>
+
+    <section class="container">
+      <ul class="grid blog-items">
+        <li class="grid-col-50 blog-item" v-for="post in posts">
           <article-preview :post="post"></article-preview>
         </li>
       </ul>
@@ -45,9 +38,32 @@ export default {
       }
     })
   },
+  computed: {
+    pluralizeY () {
+      return (this.posts.length > 1) ? 'ies' : 'y'
+    }
+  },
   components: {
     ArticlePreview,
     Navigation
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../assets/scss/variables";
+
+  .blog {
+    &-items {
+      padding: 0 $space-main;
+
+      @media (min-width: $lg) {
+        padding-left: $space-offset-left;
+      }
+    }
+
+    &-item {
+      
+    }
+  }
+</style>
