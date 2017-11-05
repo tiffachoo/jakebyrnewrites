@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div class="hero">
-      <h2 class="hero-header">{{ post.fields.title }}</h2>
+    <Hero :title="post.fields.title">
       <br/>
       <time class="hero-small-text">{{ (new Date(post.fields.publishDate)).toDateString() }}</time>
-    </div>
+    </Hero>
 
     <section class="container">
       <div class="blog-body">
@@ -18,6 +17,7 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
+import Hero from '~/components/hero.vue'
 
 const client = createClient()
 
@@ -34,6 +34,7 @@ export default {
     .catch(console.error)
   },
   components: {
+    Hero,
     VueMarkdown
   }
 }

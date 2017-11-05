@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="hero">
-      <h2 class="hero-header">See</h2>
-    </div>
+    <Hero title="See"></Hero>
 
     <section class="container-fluid">
       <ul class="event-items">
@@ -35,6 +33,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import Hero from '~/components/hero.vue'
 
 const client = createClient()
 
@@ -48,6 +47,9 @@ export default {
         posts: entries.items
       }
     })
+  },
+  components: {
+    Hero
   }
 }
 </script>

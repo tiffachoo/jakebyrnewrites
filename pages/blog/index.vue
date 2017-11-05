@@ -1,9 +1,6 @@
 <template>
   <div>
-
-    <div class="hero">
-      <h2 class="hero-header">Blog</h2>
-    </div>
+    <Hero title="Blog"></Hero>
 
     <section class="container">
       <ul class="grid blog-items">
@@ -18,6 +15,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import Hero from '~/components/hero.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -34,7 +32,8 @@ export default {
     })
   },
   components: {
-    ArticlePreview
+    ArticlePreview,
+    Hero
   }
 }
 </script>

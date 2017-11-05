@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div class="hero">
-      <h2 class="hero-header">#{{ tag }}</h2>
+    <Hero :title="`#${tag}`">
       <br/>
       <span class="hero-small-text">{{ posts.length }} blog entr{{ pluralizeY }} tagged</span>
-    </div>
+    </Hero>
 
     <section class="container">
       <ul class="grid blog-items">
@@ -18,6 +17,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import Hero from '~/components/hero.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -41,7 +41,8 @@ export default {
     }
   },
   components: {
-    ArticlePreview
+    ArticlePreview,
+    Hero
   }
 }
 </script>
