@@ -58,13 +58,13 @@ $space-main: 30px;
 $space-main-sm: 15px;
 $space-gutter: 15px;
 
-$space-offset-left: 30vw;
+$space-offset-left: 400px;
 
 
 // EXTENDS
 
 %main-container {
-	margin: 0 auto;
+	// margin: 0 auto;
 	max-width: $body-max-width;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <Navigation></Navigation>
-    <main role="main">
+    <main class="main" role="main">
       <nuxt/>
     </main>
     <Bottom></Bottom>
@@ -35,6 +35,7 @@
     line-height: $body-line-height;
 
     > div {
+      display: flex;
       flex: 1 1 auto;
       background-color: $white;
 
@@ -117,10 +118,22 @@
   }
 
   .wrap {
-    padding: 80px 0 60px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 80px 0 0;
 
     @media (min-width: $lg) {
-      padding: 120px 0 100px;
+      padding: 120px 0 0;
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    padding-bottom: 60px;
+
+    @media (min-width: $lg) {
+      padding-bottom: 100px;
     }
   }
 
