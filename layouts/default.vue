@@ -1,19 +1,23 @@
 <template>
   <div class="wrap">
+    <Navigation></Navigation>
     <main role="main">
       <nuxt/>
     </main>
+    <Bottom></Bottom>
   </div>
 </template>
 
 <script>
-  // import Greeting from '~/components/greeting.vue'
+  import Navigation from '~/components/navigation.vue'
+  import Bottom from '~/components/footer.vue'
 
-  // export default {
-  //   components: {
-  //     Greeting
-  //   }
-  // }
+  export default {
+    components: {
+      Navigation,
+      Bottom
+    }
+  }
 </script>
 
 <style lang="scss">

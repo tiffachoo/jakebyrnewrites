@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Navigation></Navigation>
-
     <div class="hero">
       <h2 class="hero-header">#{{ tag }}</h2>
       <br/>
@@ -20,7 +18,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -44,8 +41,7 @@ export default {
     }
   },
   components: {
-    ArticlePreview,
-    Navigation
+    ArticlePreview
   }
 }
 </script>

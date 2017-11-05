@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Navigation></Navigation>
-    
     <div class="hero">
       <h2 class="hero-header">Works</h2>
     </div>
@@ -33,7 +31,6 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
 
 const client = createClient()
 
@@ -47,9 +44,6 @@ export default {
         posts: entries.items
       }
     })
-  },
-  components: {
-    Navigation
   }
 }
 </script>

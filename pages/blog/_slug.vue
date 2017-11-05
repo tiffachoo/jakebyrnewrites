@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Navigation></Navigation>
-
     <div class="hero">
       <h2 class="hero-header">{{ post.fields.title }}</h2>
       <br/>
@@ -20,7 +18,6 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
 
 const client = createClient()
 
@@ -37,7 +34,6 @@ export default {
     .catch(console.error)
   },
   components: {
-    Navigation,
     VueMarkdown
   }
 }
