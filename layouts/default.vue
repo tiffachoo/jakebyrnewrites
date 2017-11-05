@@ -42,7 +42,7 @@
 
   h2 {
     font-size: 4em;
-    line-height: 1.25em;
+    line-height: 1.125em;
 
     @media (max-width: $md - 1) {
       font-size: 3em;
@@ -50,7 +50,7 @@
   }
   h3 {
     font-size: 2.5em;
-    line-height: 1.25em;
+    line-height: 1.125em;
 
     @media (max-width: $md - 1) {
       font-size: 2em;
@@ -145,19 +145,18 @@
       position: fixed;
       z-index: 2;
       left: $body-border-width + $space-main;
+      max-width: calc(#{$space-offset-left} - #{$space-gutter});
     }
 
     @media (max-width: $lg - 1) {
       padding: 0 $space-main;
-    //   top: 30px;
-    //   left: $space-main;
+      margin-bottom: $space-main;
     }
 
     &-header { 
-      display: inline-block;
+      display: inline;
       position: relative;
       z-index: 1;
-      margin-bottom: $space-main;
       font-weight: 700;
 
       &::after {

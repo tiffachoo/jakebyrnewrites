@@ -21,7 +21,7 @@
               </span>
             </div>
             <div class="item-right">
-              <time>{{post.fields.date}}</time>
+              <time>{{ (new Date(post.fields.date)).toDateString() }}</time>
             </div>
           </div>
         </li>
