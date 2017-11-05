@@ -79,6 +79,10 @@ export default {
 
   .work-item-wrap {
     @extend %main-container;
-    padding-left: $space-offset-left;
+    padding: 0 $space-main;
+    
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    };
   }
 </style>

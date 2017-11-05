@@ -31,23 +31,52 @@
     line-height: $body-line-height;
 
     > div {
-      flex: 1 0 auto;
-      margin: $body-border-width;
+      flex: 1 1 auto;
       background-color: $white;
+
+      @media (min-width: $md) {
+        margin: $body-border-width;
+      }
     }
   }
 
   h2 {
     font-size: 4em;
     line-height: 1.25em;
+
+    @media (max-width: $md - 1) {
+      font-size: 3em;
+    }
   }
   h3 {
     font-size: 2.5em;
     line-height: 1.25em;
+
+    @media (max-width: $md - 1) {
+      font-size: 2em;
+    }
   }
   h4 {
     font-size: 2em;
     line-height: 1.25em;
+
+    @media (max-width: $md - 1) {
+      font-size: 1.75em;
+    }
+  }
+  h5 {
+    font-size: 1.75em;
+    line-height: 1.25em;
+    font-weight: 700;
+
+    @media (max-width: $md - 1) {
+      font-size: 1.25em;
+    }
+  }
+  h6 {
+    font-size: 1em;
+    line-height: 1.25em;
+    font-weight: 700;
   }
 
   a {
@@ -84,7 +113,11 @@
   }
 
   .wrap {
-    padding: 120px 0 100px;
+    padding: 80px 0 60px;
+
+    @media (min-width: $lg) {
+      padding: 120px 0 100px;
+    }
   }
 
   .container {
@@ -97,30 +130,41 @@
     margin: 0 -$space-gutter;
 
     &-col-50 {
-      flex: 0 0 50%;
       padding: 0 $space-gutter;
+
+      @media (min-width: $sm) {
+        flex: 0 0 50%;
+      }
     }
   }
 
   .hero {
     @extend %main-container;
-    position: fixed;
-    z-index: 2;
+
+    @media (min-width: $lg) {
+      position: fixed;
+      z-index: 2;
+      left: $body-border-width + $space-main;
+    }
+
+    @media (max-width: $lg - 1) {
+      padding: 0 $space-main;
+    //   top: 30px;
+    //   left: $space-main;
+    }
 
     &-header { 
       display: inline-block;
       position: relative;
       z-index: 1;
+      margin-bottom: $space-main;
       font-weight: 700;
 
       &::after {
         content: '';
         @include line-decoration($tertiary-color);
+        left: -$space-main;
       }
-    }
-
-    &-spaced {
-      margin-bottom: $space-main-lg;
     }
   }
 

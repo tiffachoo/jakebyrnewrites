@@ -42,14 +42,28 @@
   @import "../assets/scss/variables";
 
   .header {
-    display: flex;
-    justify-content: space-between;
     position: fixed;
     z-index: 333;
     top: 0;
     left: $body-border-width;
     width: calc(100% - (#{$body-border-width} * 2));
-    padding: $space-main;
+
+    @media (min-width: $md) {
+      padding: $space-main;
+    }
+    
+    @media (max-width: $md - 1) {
+      padding: $space-main-sm;
+    }
+
+    @media (min-width: $sm) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: $sm - 1) {
+      text-align: center;
+    }
   }
 
   .nav {

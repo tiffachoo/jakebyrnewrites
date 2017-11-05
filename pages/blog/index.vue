@@ -2,7 +2,7 @@
   <div>
     <Navigation></Navigation>
 
-    <div class="hero hero-spaced">
+    <div class="hero">
       <h2 class="hero-header">Blog</h2>
     </div>
 
@@ -47,6 +47,11 @@ export default {
 
   .blog {
     &-items {
+      padding: 0 $space-main;
+
+      @media (min-width: $lg) {
+        padding-left: $space-offset-left;
+      }
     }
 
     &-item {

@@ -29,7 +29,7 @@
     </section>
 
     <section class="container">
-      <h3>Past events</h3>
+      <h4>Past events</h4>
     </section>
 
   </div>
@@ -75,9 +75,15 @@ export default {
 
   .event-item-wrap {
     @extend %main-container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: $space-offset-left;
+    padding: 0 $space-main;
+
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    }
+    @media (min-width: $sm) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>
