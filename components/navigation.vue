@@ -64,6 +64,19 @@
     @media (max-width: $sm - 1) {
       text-align: center;
     }
+
+    a {
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+
+    .logo {
+      font-style: italic;
+      font-size: 1.125em;
+    }
   }
 
   .nav {
@@ -80,10 +93,8 @@
 
     &-link {
       color: $primary-color;
-      border-bottom: none;
 
       &:hover {
-        border-bottom: none;
         color: $primary-color-tint-1;
       }
     }
