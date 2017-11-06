@@ -25,7 +25,7 @@ export default {
       position: fixed;
       z-index: 2;
       left: $body-border-width + $space-main;
-      max-width: calc(#{$space-offset-left} - #{$space-gutter});
+      max-width: calc(#{$space-offset-left} - #{$space-gutter} - #{$body-border-width});
     }
 
     @media (max-width: $lg - 1) {

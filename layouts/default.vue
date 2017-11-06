@@ -99,21 +99,15 @@
   a.link-fancy {
     position: relative;
     z-index: 1;
+    border-bottom: none;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 55%, $link-color 55%, $link-color 90%, transparent 90%);
+    background-size: 100% 100%; 
+    line-height: 1em;
+    transition: 0.25s;
 
     &:hover {
-      border-color: transparent;
-
-      &::after {
-        transform: scaleY(1);
-      }
-    }
-
-    &::after {
-      content: '';
-      @include line-decoration($link-color);
-      transform: scaleY(0);
-      transform-origin: bottom center;
-      transition: 0.25s;
+      border-bottom: none;
+      background-size: 100% 140%; 
     }
   }
 
