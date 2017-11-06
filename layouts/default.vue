@@ -111,6 +111,37 @@
     }
   }
 
+  .wysiwyg-wrapper {
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 2.25em;
+    }
+    h3 {
+      font-size: 2.125em;
+    }
+    h4 {
+      font-size: 1.75em;
+    }
+    h5 {
+      font-size: 1.5em;
+    }
+
+    h1, h2, h3, h4 {
+      margin-bottom: 0.125em;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+
+      @media (min-width: $sm) {
+        font-size: 1.125em;
+        line-height: 2em;
+      }
+    }
+  }
+
   .wrap {
     display: flex;
     flex-direction: column;
