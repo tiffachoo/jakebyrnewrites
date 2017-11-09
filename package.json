@@ -12,6 +12,7 @@
     "contentful-management": "^3.4.0",
     "node-sass": "^4.5.3",
     "nuxt": "^1.0.0-rc4",
+    "rxjs": "^5.5.2",
     "sass-loader": "^6.0.6",
     "vue-markdown": "^2.1.3"
   },
