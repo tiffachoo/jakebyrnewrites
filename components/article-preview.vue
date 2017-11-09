@@ -8,7 +8,7 @@
     >
     <h4 class="item-title">
       <nuxt-link 
-        class="item-title-link"
+        class="item-title-link link-fancy"
         :to="{ name: 'blog-slug', params: { slug: post.fields.slug }}">
         {{ post.fields.title }}
       </nuxt-link>
@@ -56,24 +56,24 @@ export default {
 
   .item-title {
     &-link {
-      position: relative;
-      z-index: 1;
-      border-bottom: none;
+      // position: relative;
+      // z-index: 1;
+      // border-bottom: none;
       color: $primary-color;
 
-      &:hover {
-        border-bottom: none;
+      // &:hover {
+      //   border-bottom: none;
 
-        &::after {
-          height: $border-width-text + 0.25em;
-        }
-      }
+      //   &::after {
+      //     height: $border-width-text + 0.25em;
+      //   }
+      // }
 
-      &::after {
-        content: '';
-        @include line-decoration($link-color);
-        transition: 0.25s;
-      }
+      // &::after {
+      //   content: '';
+      //   @include line-decoration($link-color);
+      //   transition: 0.25s;
+      // }
     }
   }
 

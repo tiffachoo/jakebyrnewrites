@@ -1,19 +1,23 @@
 <template>
   <div class="wrap">
-    <main role="main">
+    <Navigation></Navigation>
+    <main class="main" role="main">
       <nuxt/>
     </main>
+    <Bottom></Bottom>
   </div>
 </template>
 
 <script>
-  // import Greeting from '~/components/greeting.vue'
+  import Navigation from '~/components/navigation.vue'
+  import Bottom from '~/components/footer.vue'
 
-  // export default {
-  //   components: {
-  //     Greeting
-  //   }
-  // }
+  export default {
+    components: {
+      Navigation,
+      Bottom
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -31,23 +35,53 @@
     line-height: $body-line-height;
 
     > div {
-      flex: 1 0 auto;
-      margin: $body-border-width;
+      display: flex;
+      flex: 1 1 auto;
       background-color: $white;
+
+      @media (min-width: $md) {
+        margin: $body-border-width;
+      }
     }
   }
 
   h2 {
     font-size: 4em;
-    line-height: 1.25em;
+    line-height: 1.125em;
+
+    @media (max-width: $md - 1) {
+      font-size: 3em;
+    }
   }
   h3 {
     font-size: 2.5em;
-    line-height: 1.25em;
+    line-height: 1.125em;
+
+    @media (max-width: $md - 1) {
+      font-size: 2em;
+    }
   }
   h4 {
     font-size: 2em;
     line-height: 1.25em;
+
+    @media (max-width: $md - 1) {
+      font-size: 1.75em;
+    }
+  }
+  h5 {
+    font-size: 1.75em;
+    line-height: 1.25em;
+    font-weight: 700;
+
+    @media (max-width: $md - 1) {
+      font-size: 1.25em;
+    }
+  }
+  h6 {
+    font-size: 1em;
+    line-height: 1.25em;
+    font-weight: 700;
   }
 
   a {
@@ -65,26 +99,67 @@
   a.link-fancy {
     position: relative;
     z-index: 1;
+    border-bottom: none;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 55%, $link-color 55%, $link-color 90%, transparent 90%);
+    background-size: 100% 100%; 
+    line-height: 1em;
+    transition: 0.25s;
 
     &:hover {
-      border-color: transparent;
+      border-bottom: none;
+      background-size: 100% 140%; 
+    }
+  }
 
-      &::after {
-        transform: scaleY(1);
-      }
+  .wysiwyg-wrapper {
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 2.25em;
+    }
+    h3 {
+      font-size: 2.125em;
+    }
+    h4 {
+      font-size: 1.75em;
+    }
+    h5 {
+      font-size: 1.5em;
     }
 
-    &::after {
-      content: '';
-      @include line-decoration($link-color);
-      transform: scaleY(0);
-      transform-origin: bottom center;
-      transition: 0.25s;
+    h1, h2, h3, h4 {
+      margin-bottom: 0.125em;
+    }
+
+    p {
+      margin-bottom: 1.5em;
+
+      @media (min-width: $sm) {
+        font-size: 1.125em;
+        line-height: 2em;
+      }
     }
   }
 
   .wrap {
-    padding: 120px 0 100px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 80px 0 0;
+
+    @media (min-width: $lg) {
+      padding: 120px 0 0;
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    padding-bottom: 60px;
+
+    @media (min-width: $lg) {
+      padding-bottom: 100px;
+    }
   }
 
   .container {
@@ -97,29 +172,11 @@
     margin: 0 -$space-gutter;
 
     &-col-50 {
-      flex: 0 0 50%;
       padding: 0 $space-gutter;
-    }
-  }
 
-  .hero {
-    @extend %main-container;
-
-    &-header { 
-      display: inline-block;
-      position: relative;
-      z-index: 1;
-      font-weight: 700;
-
-      &::after {
-        content: '';
-        @include line-decoration($tertiary-color);
+      @media (min-width: $sm) {
+        flex: 0 0 50%;
       }
     }
-
-    &-spaced {
-      margin-bottom: $space-main-lg;
-    }
   }
-
 </style>

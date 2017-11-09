@@ -1,32 +1,14 @@
 <template>
   <div>
-    <header class="article header">
-      <div class="foreground">
-        <div class="page-bar wrapper">
-          <a href="/" class="person-name">John Doe</a>
-          <Navigation></Navigation>
-        </div>
-      </div>
-      <div>
-        <img
-          :src="post.fields.heroImage.fields.file.url + '?fit=scale&w=350&h=196'"
-          :srcset="`${post.fields.heroImage.fields.file.url}?w=350&h=87&fit=fill 350w, ${post.fields.heroImage.fields.file.url}?w=1000&h=250&fit=fill 1000w, ${post.fields.heroImage.fields.file.url}?w=2000&h=500&fit=fill 2000w`"
-          size="100vw"
-          :alt="post.fields.heroImage.fields.description"
-        >
-      </div>
-    </header>
+    <Hero :title="post.fields.title">
+      <br/>
+      <time class="hero-small-text">{{ (new Date(post.fields.publishDate)).toDateString() }}</time>
+    </Hero>
 
-    <section class="body-container">
-      <main class="wrapper">
-        <div class="headline">
-          <time class="tiny">{{ ( new Date(post.fields.publishDate)).toDateString() }}</time>
-          <h1>{{ post.fields.title }}</h1>
-        </div>
-        <div class="copy">
-          <vue-markdown>{{post.fields.body}}</vue-markdown>
-        </div>
-      </main>
+    <section class="container">
+      <div class="blog-body wysiwyg-wrapper">
+        <vue-markdown>{{post.fields.body}}</vue-markdown>
+      </div>
     </section>
 
   </div>
@@ -35,7 +17,7 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
+import Hero from '~/components/hero.vue'
 
 const client = createClient()
 
@@ -52,46 +34,20 @@ export default {
     .catch(console.error)
   },
   components: {
-    Navigation,
+    Hero,
     VueMarkdown
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+  @import "../../assets/scss/variables";
 
-.foreground .page-bar {
-  border-bottom: 0;
-}
+  .blog-body {
+    padding: 0 $space-main;
 
-.headline {
-  padding: 3em 0 0;
-}
-
-.headline h1 {
-  font-size: 3.5em;
-}
-
-.copy {
-  padding-bottom: 7em;
-}
-
-.copy *:not(div) {
-  margin: 2em 0 1em;
-}
-
-.copy h3 {
-  font-size: 1.35em;
-}
-
-.copy ul {
-  margin: 0;
-  padding-left: 1em;
-  list-style: disc;
-}
-
-.copy li {
-  margin: 0;
-}
-
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    }
+  }
 </style>

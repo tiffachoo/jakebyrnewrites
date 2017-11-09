@@ -1,10 +1,6 @@
 <template>
   <div>
-    <Navigation></Navigation>
-    
-    <div class="hero">
-      <h2 class="hero-header">Works</h2>
-    </div>
+    <Hero title="Works"></Hero>
 
     <section class="container-fluid">
       <ul class="work-items">
@@ -33,7 +29,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
+import Hero from '~/components/hero.vue'
 
 const client = createClient()
 
@@ -49,7 +45,7 @@ export default {
     })
   },
   components: {
-    Navigation
+    Hero
   }
 }
 </script>
@@ -79,6 +75,10 @@ export default {
 
   .work-item-wrap {
     @extend %main-container;
-    padding-left: $space-offset-left;
+    padding: 0 $space-main;
+    
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    };
   }
 </style>

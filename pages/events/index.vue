@@ -1,10 +1,6 @@
 <template>
   <div>
-    <Navigation></Navigation>
-    
-    <div class="hero">
-      <h2 class="hero-header">See</h2>
-    </div>
+    <Hero title="See"></Hero>
 
     <section class="container-fluid">
       <ul class="event-items">
@@ -21,7 +17,7 @@
               </span>
             </div>
             <div class="item-right">
-              <time>{{post.fields.date}}</time>
+              <time>{{ (new Date(post.fields.date)).toDateString() }}</time>
             </div>
           </div>
         </li>
@@ -29,7 +25,7 @@
     </section>
 
     <section class="container">
-      <h3>Past events</h3>
+      <h4>Past events</h4>
     </section>
 
   </div>
@@ -37,7 +33,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
+import Hero from '~/components/hero.vue'
 
 const client = createClient()
 
@@ -53,7 +49,7 @@ export default {
     })
   },
   components: {
-    Navigation
+    Hero
   }
 }
 </script>
@@ -75,9 +71,15 @@ export default {
 
   .event-item-wrap {
     @extend %main-container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: $space-offset-left;
+    padding: 0 $space-main;
+
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    }
+    @media (min-width: $sm) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>

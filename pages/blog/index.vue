@@ -1,10 +1,6 @@
 <template>
   <div>
-    <Navigation></Navigation>
-
-    <div class="hero hero-spaced">
-      <h2 class="hero-header">Blog</h2>
-    </div>
+    <Hero title="Blog"></Hero>
 
     <section class="container">
       <ul class="grid blog-items">
@@ -19,7 +15,7 @@
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
+import Hero from '~/components/hero.vue'
 import ArticlePreview from '~/components/article-preview.vue'
 
 const client = createClient()
@@ -37,7 +33,7 @@ export default {
   },
   components: {
     ArticlePreview,
-    Navigation
+    Hero
   }
 }
 </script>
@@ -47,6 +43,11 @@ export default {
 
   .blog {
     &-items {
+      padding: 0 $space-main;
+
+      @media (min-width: $lg) {
+        padding-left: $space-offset-left;
+      }
     }
 
     &-item {

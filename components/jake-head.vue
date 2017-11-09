@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import * as svg from './jake-head-svg.json'
+
 export default {
   directives: {
     shift (el, binding) {
