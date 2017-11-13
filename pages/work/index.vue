@@ -7,13 +7,13 @@
         <li class="work-item" v-for="post in posts">
           <div class="work-item-wrap">
             <h3>{{post.fields.title}}</h3>
-            <em 
+            <em
               v-if="post.fields.publisher"
               class="item-italic">
               {{post.fields.publisher}}
             </em>
             <a
-              v-if="post.fields.publishedLink" 
+              v-if="post.fields.publishedLink"
               class="link-fancy item-link"
               target="_blank"
               :href="post.fields.publishedLink">
@@ -62,7 +62,7 @@ export default {
       position: relative;
       margin-bottom: $space-main;
       padding-bottom: $space-main;
-      
+
       @include line-hover(40%);
     }
   }
@@ -76,7 +76,7 @@ export default {
   .work-item-wrap {
     @extend %main-container;
     padding: 0 $space-main;
-    
+
     @media (min-width: $lg) {
       padding-left: $space-offset-left;
     };

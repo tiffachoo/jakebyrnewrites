@@ -87,7 +87,7 @@
   a {
     border-bottom: 1px dotted $link-color;
     text-decoration: none;
-    color: $primary-color-tint-1; 
+    color: $primary-color-tint-1;
     font-weight: 400;
     transition: 0.2s;
 
@@ -101,13 +101,13 @@
     z-index: 1;
     border-bottom: none;
     background-image: linear-gradient(to bottom, transparent 0%, transparent 55%, $link-color 55%, $link-color 90%, transparent 90%);
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     line-height: 1em;
     transition: 0.25s;
 
     &:hover {
       border-bottom: none;
-      background-size: 100% 140%; 
+      background-size: 100% 140%;
     }
   }
 
