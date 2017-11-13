@@ -26,11 +26,11 @@ const routeNameMap = [
     name: 'WORKS',
     order: 1
   },
-  // {
-  //   id: 'contact',
-  //   name: 'TO',
-  //   order: 2
-  // },
+  {
+    id: 'contact',
+    name: 'TO',
+    order: 2
+  },
   {
     id: 'events',
     name: 'SEE',
