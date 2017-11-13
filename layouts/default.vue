@@ -149,7 +149,7 @@
     padding: 80px 0 0;
 
     @media (min-width: $lg) {
-      padding: 120px 0 0;
+      padding: $space-offset-top 0 0;
     }
   }
 
@@ -164,6 +164,14 @@
 
   .container {
     @extend %main-container;
+  }
+
+  .content {
+    padding: 0 $space-main;
+
+    @media (min-width: $lg) {
+      padding-left: $space-offset-left;
+    }
   }
 
   .grid {
