@@ -6,54 +6,51 @@
       </clipPath>
       <image id="jake-master" width="1920" height="1368" :xlink:href="src"/>
     </defs>
-    <g v-for="(node, index) in svg" :key="index" :style="{
-      clipPath: `url(#clipPath-${index})`,
-      transformOrigin: node.style.transformOrigin
-    }">
-      <use transform="scale(0.78947)" xlink:href="#jake-master"/>
-    </g>
+    <JakeHeadPiece
+      v-for="(node, index) in svg" :key="index"
+      :clipPath="`url(#clipPath-${index})`"
+      :transformOrigin="node.style.transformOrigin"
+      :transformFactor="transformFactor"
+      xlinkHref="#jake-master">
+    </JakeHeadPiece>
   </svg>
 </template>
 
 <script>
+import JakeHeadPiece from './jake-head-piece.vue'
 import * as svg from './jake-head-svg.json'
 
+import { Observable } from '../lib/rxjs'
+
 export default {
-  directives: {
-    shift (el, binding) {
-      const id = el.style.clipPath.split('"')[1].split('#')[1]
-      const path = document.getElementById(id)
-      const rect = path.getBoundingClientRect()
-      const center = { x: rect.left - rect.width / 2, y: rect.top - rect.height / 2 }
-      const { innerWidth, innerHeight } = window
-      const shiftAmount = {
-        x: ((center.x / innerWidth) + (binding.value.x)) / 2,
-        y: ((center.y / innerHeight) + (binding.value.y)) / 2
-      }
-      console.log(shiftAmount)
-      el.style.transform = `rotateY(${60 * shiftAmount.x}deg) rotateX(${60 * shiftAmount.y}deg) skewX(${shiftAmount.y}deg) skewY(${shiftAmount.x}deg)`
-    }
-  },
   props: ['src'],
   data () {
     return {
-      shiftValue: {
-        x: 0,
-        y: 0
-      },
+      transformFactor: 1,
       svg
     }
   },
-  mounted () {
-    window.addEventListener('mousemove', this.shift)
+  mounted (el) {
+    const mouseMove$ = Observable.fromEvent(window, 'mousemove')
+    const touchMove$ = Observable.fromEvent(window, 'touchmove')
+    this.cursorMoveSubscription = Observable.merge(mouseMove$, touchMove$)
+      .map(({ clientX: x, clientY: y }) => ({ x, y }))
+      .subscribe(this.transform)
+  },
+  beforeDestroy () {
+    this.cursorMoveSubscription.unsubscribe()
   },
   methods: {
-    shift ({ clientX, clientY }) {
+    transform ({ x: mouseX, y: mouseY }) {
       const { innerWidth, innerHeight } = window
-      const x = clientX / innerWidth
-      const y = clientY / innerHeight
-      this.shiftValue = { x, y }
+      const jakeCenter = { x: innerWidth / 4, y: innerHeight / 2 }
+      const x = (jakeCenter.x > mouseX ? jakeCenter.x - mouseX : mouseX - jakeCenter.x) / jakeCenter.x
+      const y = (jakeCenter.y > mouseY ? jakeCenter.y - mouseY : mouseY - jakeCenter.y) / jakeCenter.y
+      this.transformFactor = 1 - ((x + y) / 2)
     }
+  },
+  components: {
+    JakeHeadPiece
   }
 }
 </script>

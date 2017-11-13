@@ -92,7 +92,9 @@ const config = {
       require('autoprefixer')({
         browsers: ['> 5%']
       })
-    ]
+    ],
+
+    vendor: ['rxjs']
   },
 
   /*
