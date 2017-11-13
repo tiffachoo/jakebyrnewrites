@@ -3,7 +3,7 @@
     <Hero title="Blog"></Hero>
 
     <section class="container">
-      <ul class="grid blog-items">
+      <ul class="content grid blog-items">
         <li class="grid-col-50 blog-item" v-for="post in posts">
           <article-preview :post="post"></article-preview>
         </li>
@@ -37,21 +37,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  @import "../../assets/scss/variables";
-
-  .blog {
-    &-items {
-      padding: 0 $space-main;
-
-      @media (min-width: $lg) {
-        padding-left: $space-offset-left;
-      }
-    }
-
-    &-item {
-      
-    }
-  }
-</style>
