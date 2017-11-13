@@ -139,10 +139,9 @@ const config = {
   */
   router: {
     extendRoutes (routes, resolve) {
-      console.log(routes)
       routeNameMap.forEach((newRoute, i) => {
         const oldRoute = routes.find(route => route.name === newRoute.id)
-        routes[i] = Object.assign({}, oldRoute || {}, newRoute)
+        if (oldRoute) routes[i] = Object.assign({}, oldRoute || {}, newRoute)
       })
     }
   },
