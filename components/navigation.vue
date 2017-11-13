@@ -5,15 +5,15 @@
     </a>
     <nav role="navigation" class="nav-top">
       <ul class="nav-items">
-        <li 
-          v-for="route in this.$router.options.routes" 
-          v-if="!/\/.*?\/.*/.test(route.path)" 
-          class="nav-item" 
-          v-test>
-          <nuxt-link 
+        <li
+          v-for="route in $router.options.routes"
+          v-if="!/\/.*?\/.*/.test(route.path)"
+          :key="route.id"
+          class="nav-item">
+          <nuxt-link
             class="nav-link"
             :to="{ name: route.name }">
-            {{ route.name.charAt(0).toUpperCase() + route.name.slice(1) }}
+            {{ route.name.toUpperCase() }}
           </nuxt-link>
         </li>
       </ul>
@@ -51,7 +51,7 @@
     @media (min-width: $md) {
       padding: $space-main;
     }
-    
+
     @media (max-width: $md - 1) {
       padding: $space-main-sm;
     }

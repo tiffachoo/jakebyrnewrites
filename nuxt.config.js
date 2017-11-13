@@ -18,32 +18,32 @@ const cmaClient = cmaContentful.createClient({
 const routeNameMap = [
   {
     id: 'index',
-    name: 'WHO',
+    name: 'who',
     order: 0
   },
   {
     id: 'work',
-    name: 'WORKS',
+    name: 'works',
     order: 1
   },
-  // {
-  //   id: 'contact',
-  //   name: 'TO',
-  //   order: 2
-  // },
+  {
+    id: 'contact',
+    name: 'to',
+    order: 2
+  },
   {
     id: 'events',
-    name: 'SEE',
+    name: 'see',
     order: 3
   },
   {
     id: 'blog',
-    name: 'THE',
+    name: 'the',
     order: 4
   }
   // {
   //   id: '🎩',
-  //   name: 'MIND',
+  //   name: 'mind',
   //   order: 5
   // }
 ]
@@ -141,8 +141,9 @@ const config = {
     extendRoutes (routes, resolve) {
       routeNameMap.forEach((newRoute, i) => {
         const oldRoute = routes.find(route => route.name === newRoute.id)
-        if (oldRoute) routes[i] = Object.assign({}, oldRoute || {}, newRoute)
+        if (oldRoute) Object.assign(oldRoute, newRoute)
       })
+      routes.sort((a, b) => (a.order || 0) - (b.order || 0))
     }
   },
 
