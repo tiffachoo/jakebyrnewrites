@@ -20,17 +20,20 @@ export default {
   mounted () {
     const randomInterval$ = Observable.defer(
       () => Observable
-        .timer(randomBetween(200, 3000))
-        .mapTo(randomBetween(95, 105))
+        .timer(randomBetween(1000, 5000))
+        .mapTo(randomBetween(90, 110))
     ).repeat()
 
     this.randomTransformSubscription = randomInterval$
       .pairwise()
-      .flatMap(([from, to]) => Observable.interval(0, Scheduler.animationFrame)
-        .map(tick => EASING.Elastic(tick / 100, from, to) * this.transformFactor)
+      .switchMap(([from, to]) => Observable.interval(0, Scheduler.animationFrame)
+        .map(tick => EASING.Elastic.easeOut(tick / 100, from, to))
         .take(100)
-        .do(factor => {
-          this.transform = `scale(${factor / 100}) skewX(${(factor / 100) * 5}deg) rotateY(${(factor / 100) * 10}deg)`
+        .do(value => {
+          this.transform = `scale(${this.transformFactor * (value / 50)}) skewX(${this.transformFactor * (value / 100)}deg) skewY(${this.transformFactor * (value / 100)}deg) rotateY(${this.transformFactor * (value / 100)}deg)`
+          // this.transform = `scale(${this.transformFactor * (value / 100)}) skewX(${this.transformFactor * value}deg) skewY(${this.transformFactor * value}deg) rotateY(${this.transformFactor / value}deg)`
+          // this.transform = `scale(${this.transformFactor * (value / 10)}) skewX(${this.transformFactor * (value * 360)}deg) skewY(${this.transformFactor * (value * 360)}deg) rotateY(${this.transformFactor / (value * 360)}deg)`
+          // this.transform = `scale(${this.transformFactor}) skewX(${this.transformFactor / (value / 180)}deg) skewY(${this.transformFactor * (value * 180)}deg) rotateY(${this.transformFactor}deg)`
         })
       ).subscribe()
   },

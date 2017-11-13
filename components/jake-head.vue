@@ -35,6 +35,7 @@ export default {
     const touchMove$ = Observable.fromEvent(window, 'touchmove')
     this.cursorMoveSubscription = Observable.merge(mouseMove$, touchMove$)
       .map(({ clientX: x, clientY: y }) => ({ x, y }))
+      .throttle(val => Observable.interval(80))
       .subscribe(this.transform)
   },
   beforeDestroy () {
