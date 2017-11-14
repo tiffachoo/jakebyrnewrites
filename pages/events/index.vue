@@ -2,12 +2,12 @@
   <div>
     <Hero title="See"></Hero>
 
-    <section class="container-fluid">
+    <section class="container-fluid event-upcoming">
       <ul class="event-items">
         <li class="event-item" v-for="post in posts">
           <div class="event-item-wrap">
             <div class="item-left">
-              <h3>{{post.fields.name}}</h3>
+              <h3 class="event-title">{{post.fields.name}}</h3>
               <span>
                 <template v-if="post.fields.type">
                   {{post.fields.type}}
@@ -25,7 +25,23 @@
     </section>
 
     <section class="container">
-      <h4>Past events</h4>
+      <div class="content">
+        <div class="event-past">
+          <h4 class="event-header">Past events</h4>
+          <ul class="event-items">
+            <li v-for="post in posts" class="event-item">
+              <div class="event-item-wrap">
+                <div class="item-left">
+                  <span class="event-title">{{post.fields.name}}</span>
+                </div>
+                <div class="item-right">
+                  <time>{{ (new Date(post.fields.date)).toDateString() }}</time>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
   </div>
@@ -57,25 +73,54 @@ export default {
 <style lang="scss">
   @import "../../assets/scss/variables";
 
-  .event {
-    &-items {
+  .event-upcoming {
+    .event {
+      &-items {
+      }
+
+      &-item {
+        position: relative;
+        margin-bottom: $space-main;
+        padding-bottom: $space-main;
+        @include line-hover(50%);
+      }
     }
 
-    &-item {
-      position: relative;
-      margin-bottom: $space-main;
-      padding-bottom: $space-main;
-      @include line-hover(50%);
+    .event-item-wrap {
+      @extend %main-container;
+      padding: 0 $space-main;
+
+      @media (min-width: $lg) {
+        padding-left: $space-offset-left;
+      }
+    }
+  }
+
+  .event-past {
+    position: relative;
+    margin-top: 20px;
+    padding-top: $space-main;
+    background-color: $tertiary-color;
+
+    .event {
+      &-header {
+        position: absolute;
+        top: -20px;
+      }
+
+      &-item {
+        margin-bottom: $space-main-sm;
+        padding-bottom: $space-main-sm;
+        border-bottom: solid 1px $white;
+      }
+
+      &-title {
+        font-weight: 700;
+      }
     }
   }
 
   .event-item-wrap {
-    @extend %main-container;
-    padding: 0 $space-main;
-
-    @media (min-width: $lg) {
-      padding-left: $space-offset-left;
-    }
     @media (min-width: $sm) {
       display: flex;
       justify-content: space-between;
