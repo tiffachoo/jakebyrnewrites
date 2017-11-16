@@ -9,6 +9,8 @@
             {{ person.fields.email }}
           </a>
         </span>
+        <br/>
+        <small>you can email me</small>
       </div>
     </section>
 

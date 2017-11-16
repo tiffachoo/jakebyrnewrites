@@ -13,7 +13,7 @@
           <nuxt-link
             class="nav-link"
             :to="{ name: route.name }">
-            {{ route.name.toUpperCase() }}
+            {{ route.name }}
           </nuxt-link>
         </li>
       </ul>
