@@ -1,8 +1,10 @@
 <template>
   <header class="header">
-    <a href="/" class="logo">
+    <nuxt-link
+      class="logo"
+      :to="{ path: '/' }">
       Jake Byrne
-    </a>
+    </nuxt-link>
     <nav role="navigation" class="nav-top">
       <ul class="nav-items">
         <li
