@@ -34,7 +34,7 @@ import Hero from '~/components/hero.vue'
 const client = createClient()
 
 export default {
-  transition: 'glitch',
+  // transition: 'glitch',
   asyncData ({ env, params }) {
     return client.getEntries({
       'content_type': env.CTF_WORK_TYPE_ID,

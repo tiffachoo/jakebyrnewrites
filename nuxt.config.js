@@ -53,11 +53,11 @@ const config = {
   ** Headers of the page
   */
   head: {
-    title: 'Custom app with Contentful',
+    title: 'jakebyrnewrites',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Custom app in under 5 minutes' }
+      { hid: 'description', name: 'description', content: 'Jake is a poet, this is his website' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
@@ -68,7 +68,7 @@ const config = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#2199e8' },
+  loading: { color: '#85ffed' },
 
   /*
   ** Build configuration
@@ -140,6 +140,7 @@ const config = {
   ** Extend routing configuration
   */
   router: {
+    base: '/staging/',
     extendRoutes (routes, resolve) {
       routeNameMap.forEach((newRoute, i) => {
         const oldRoute = routes.find(route => route.name === newRoute.id)

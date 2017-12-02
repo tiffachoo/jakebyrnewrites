@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="home-image">
-      <PhaseDestroyer target=".jake-layer" cause="interval">
+      <!-- <PhaseDestroyer target=".jake-layer" cause="interval"> -->
         <JakeHead :src="person.fields.image.fields.file.url"></JakeHead>
-      </PhaseDestroyer>
+      <!-- </PhaseDestroyer> -->
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import PhaseDestroyer from '~/components/phase-destroyer.vue'
 const client = createClient()
 
 export default {
-  transition: 'glitch',
+  // transition: 'glitch',
   asyncData ({env}) {
     return Promise.all([
       client.getEntries({
