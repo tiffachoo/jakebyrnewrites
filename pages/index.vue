@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../assets/scss/variables";
 
   .home-image {
@@ -82,7 +82,18 @@ export default {
     }
 
     h2 {
+      font-size: 6em;
       display: inline-block;
+      position: relative;
+
+      &::after {
+        content: '';
+        @include line-decoration($tertiary-color);
+      }
+    }
+
+    p {
+      display: inline;
     }
   }
 
