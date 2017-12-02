@@ -6,14 +6,15 @@
       <!-- </PhaseDestroyer> -->
     </div>
 
-    <div class="jake-bio-wrap">
-      <p class="intro">{{person.fields.shortBio}}</p>
+    <div class="jake-bio-wrap intro">
+      <vue-markdown>{{person.fields.shortBio}}</vue-markdown>
     </div>
   </div>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import VueMarkdown from 'vue-markdown'
 import JakeHead from '~/components/jake-head.vue'
 import PhaseDestroyer from '~/components/phase-destroyer.vue'
 
@@ -33,6 +34,7 @@ export default {
     }).catch(console.error)
   },
   components: {
+    VueMarkdown,
     JakeHead,
     PhaseDestroyer
   }
@@ -74,9 +76,13 @@ export default {
     @media (min-width: $md) {
       padding-left: $space-offset-left;
     }
-    
+
     @media (max-width: $md - 1) {
       margin-top: 400px;
+    }
+
+    h2 {
+      display: inline-block;
     }
   }
 
