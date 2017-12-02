@@ -11,6 +11,7 @@
       :clipPath="`url(#clipPath-${index})`"
       :transformOrigin="node.style.transformOrigin"
       :transformFactor="transformFactor"
+      :fuckery="fuckery"
       xlinkHref="#jake-master">
     </JakeHeadPiece>
   </svg>
@@ -23,7 +24,7 @@ import * as svg from './jake-head-svg.json'
 import { Observable } from '../lib/rxjs'
 
 export default {
-  props: ['src'],
+  props: ['src', 'fuckery'],
   data () {
     return {
       transformFactor: 1,

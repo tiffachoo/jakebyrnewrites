@@ -20,6 +20,11 @@
               {{post.fields.publishedIn}}
             </a>
           </div>
+          <span
+            v-if="post.fields.teaser"
+            class="item-hover-text">
+            {{post.fields.teaser}}
+          </span>
         </li>
       </ul>
     </section>
@@ -61,10 +66,21 @@ export default {
 
     &-item {
       position: relative;
+      z-index: 1;
       margin-bottom: $space-main;
       padding-bottom: $space-main;
-
       @include line-hover(40%);
+
+
+      @media (min-width: $sm) {
+        &:hover {
+          .item-hover-text {
+            color: $secondary-color;
+            opacity: 1;
+            transform: scale(1) skewY(0deg);
+          }
+        }
+      }
     }
   }
 
@@ -72,10 +88,33 @@ export default {
     &-italic {
       margin-right: $space-main-sm;
     }
+
+    &-hover-text {
+      @media (min-width: $sm) {
+        position: fixed;
+        z-index: -1;
+        top: $space-offset-top;
+        left: 50%;
+        width: 40%;
+        font-size: 4rem;
+        line-height: 1.35em;
+        color: $tertiary-color;
+        opacity: 0;
+        transition: opacity 0.5s 0.2s, transform 0.1s 0.2s, color 0.1s 0.2s;
+        transform-origin: 50% 50%;
+        transform: scale(0.5) skewY(180deg);
+      }
+
+      @media (max-width: $md - 1) {
+        display: none;
+      }
+    }
   }
 
   .work-item-wrap {
     @extend %main-container;
+    position: relative;
+    z-index: 1000;
     padding: 0 $space-main;
 
     @media (min-width: $lg) {

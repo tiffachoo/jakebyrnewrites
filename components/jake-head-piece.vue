@@ -11,7 +11,7 @@ import { EASING } from '../lib/easing'
 const randomBetween = (low, high) => Math.floor(Math.random() * (1 + high - low)) + low
 
 export default {
-  props: ['clipPath', 'transformOrigin', 'xlinkHref', 'transformFactor'],
+  props: ['clipPath', 'transformOrigin', 'xlinkHref', 'transformFactor', 'fuckery'],
   data () {
     return {
       transform: '',
@@ -23,7 +23,7 @@ export default {
 
     const randomInterval$ = Observable.defer(
       () => Observable
-        .timer(randomBetween(1000, 5000))
+        .timer(this.fuckery ? randomBetween(250, 1000) : randomBetween(1000, 5000))
         .mapTo(randomBetween(90, 110))
     ).repeat().share()
 

@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Navigation></Navigation>
+    <Navigation :inverted="($route.name === 'mind')"></Navigation>
     <main class="main" role="main">
       <nuxt/>
     </main>
@@ -109,6 +109,11 @@
       border-bottom: none;
       background-size: 100% 140%;
     }
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    line-height: 1.875em;
   }
 
   .wysiwyg-wrapper {

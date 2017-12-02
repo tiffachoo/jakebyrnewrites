@@ -40,12 +40,12 @@ const routeNameMap = [
     id: 'blog',
     name: 'the',
     order: 4
+  },
+  {
+    id: '🖕',
+    name: 'mind',
+    order: 5
   }
-  // {
-  //   id: '🎩',
-  //   name: 'mind',
-  //   order: 5
-  // }
 ]
 
 const config = {
