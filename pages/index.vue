@@ -82,9 +82,14 @@ export default {
     }
 
     h2 {
-      font-size: 6em;
-      display: inline-block;
+      display: inline;
       position: relative;
+      font-size: 6em;
+      line-height: 1.875rem;
+
+      @media (max-width: $md - 1) {
+        font-size: 5em;
+      }
 
       &::after {
         content: '';
