@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Navigation></Navigation>
+    <Navigation :inverted="($route.name === 'mind')"></Navigation>
     <main class="main" role="main">
       <nuxt/>
     </main>

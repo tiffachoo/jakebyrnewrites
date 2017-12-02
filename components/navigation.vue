@@ -5,7 +5,7 @@
       :to="{ path: '/' }">
       Jake Byrne
     </nuxt-link>
-    <nav role="navigation" class="nav-top">
+    <nav role="navigation" class="nav-top" :class="{'nav-inverted': inverted}">
       <ul class="nav-items">
         <li
           v-for="route in $router.options.routes"
@@ -25,18 +25,7 @@
 
 <script>
   export default {
-    directives: {
-      test: {
-        bind: function (el) {
-          el.addEventListener('mouseover', () => {
-            el.style.backgroundColor = 'yellow'
-          })
-          el.addEventListener('mouseout', () => {
-            el.style.backgroundColor = null
-          })
-        }
-      }
-    }
+    props: ['inverted']
   }
 </script>
 
@@ -98,6 +87,12 @@
 
       &:hover {
         color: $primary-color-tint-1;
+      }
+    }
+
+    &-inverted {
+      .nav-link {
+        color: $white;
       }
     }
 
