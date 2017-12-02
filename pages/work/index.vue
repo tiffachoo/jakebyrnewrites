@@ -85,7 +85,7 @@ export default {
     }
     
     &-hover-text {
-      @media (min-width: $sm) {
+      @media (min-width: $md) {
         position: fixed;
         z-index: -1;
         top: $space-offset-top;
@@ -96,6 +96,10 @@ export default {
         color: $secondary-color;
         opacity: 0;
         transition: 0.5s 0.2s;
+      }
+
+      @media (max-width: $md - 1) {
+        display: none;
       }
     }
   }
