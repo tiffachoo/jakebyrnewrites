@@ -96,7 +96,7 @@ export default {
         top: $space-offset-top;
         left: 50%;
         width: 40%;
-        font-size: 4.5rem;
+        font-size: 4rem;
         line-height: 1.35em;
         color: $tertiary-color;
         opacity: 0;
