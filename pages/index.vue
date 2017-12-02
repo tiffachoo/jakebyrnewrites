@@ -5,12 +5,15 @@
         <JakeHead :src="person.fields.image.fields.file.url"></JakeHead>
       <!-- </PhaseDestroyer> -->
     </div>
+
+    <div class="jake-bio-wrap">
+      <p class="intro">{{person.fields.shortBio}}</p>
+    </div>
   </div>
 </template>
 
 <script>
 import {createClient} from '~/plugins/contentful.js'
-import Navigation from '~/components/navigation.vue'
 import JakeHead from '~/components/jake-head.vue'
 import PhaseDestroyer from '~/components/phase-destroyer.vue'
 
@@ -22,20 +25,14 @@ export default {
     return Promise.all([
       client.getEntries({
         'sys.id': env.CTF_PERSON_ID
-      }),
-      client.getEntries({
-        'content_type': env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
       })
-    ]).then(([entries, posts]) => {
+    ]).then(([entries]) => {
       return {
-        person: entries.items[0],
-        posts: posts.items
+        person: entries.items[0]
       }
     }).catch(console.error)
   },
   components: {
-    Navigation,
     JakeHead,
     PhaseDestroyer
   }
@@ -65,6 +62,21 @@ export default {
       height: 100%;
       right: 0;
       top: 0;
+    }
+  }
+
+  .jake-bio-wrap {
+    position: relative;
+    z-index: 10;
+    @extend %main-container;
+    padding: 0 $space-main;
+
+    @media (min-width: $md) {
+      padding-left: $space-offset-left;
+    }
+    
+    @media (max-width: $md - 1) {
+      margin-top: 400px;
     }
   }
 

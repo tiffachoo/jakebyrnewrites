@@ -111,6 +111,11 @@
     }
   }
 
+  .intro {
+    font-size: 1.25rem;
+    line-height: 1.875em;
+  }
+
   .wysiwyg-wrapper {
     h1 {
       font-size: 3em;
