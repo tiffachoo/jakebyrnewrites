@@ -80,13 +80,29 @@
       &:not(:last-child) {
         margin: 0 0.5em;
       }
+
+      &:last-child {
+        margin-left: 0.5em;
+      }
     }
 
     &-link {
+      position: relative;
       color: $primary-color;
 
       &:hover {
-        color: $primary-color-tint-1;
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+
+      &::after {
+        content: '';
+        @include line-decoration($secondary-color);
+        left: -5px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: 0.2s;
       }
     }
 
