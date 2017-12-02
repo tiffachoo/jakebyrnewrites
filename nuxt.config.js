@@ -140,7 +140,7 @@ const config = {
   ** Extend routing configuration
   */
   router: {
-    base: '/staging/',
+    // base: '/staging/',
     extendRoutes (routes, resolve) {
       routeNameMap.forEach((newRoute, i) => {
         const oldRoute = routes.find(route => route.name === newRoute.id)
