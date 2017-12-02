@@ -20,7 +20,7 @@
               {{post.fields.publishedIn}}
             </a>
           </div>
-          <span 
+          <span
             v-if="post.fields.teaser"
             class="item-hover-text">
             {{post.fields.teaser}}
@@ -70,12 +70,14 @@ export default {
       margin-bottom: $space-main;
       padding-bottom: $space-main;
       @include line-hover(40%);
-      
+
 
       @media (min-width: $sm) {
         &:hover {
           .item-hover-text {
+            color: $secondary-color;
             opacity: 1;
+            transform: scale(1) skewY(0deg);
           }
         }
       }
@@ -86,7 +88,7 @@ export default {
     &-italic {
       margin-right: $space-main-sm;
     }
-    
+
     &-hover-text {
       @media (min-width: $sm) {
         position: fixed;
@@ -94,11 +96,13 @@ export default {
         top: $space-offset-top;
         left: 50%;
         width: 40%;
-        font-size: 3.5rem;
+        font-size: 4.5rem;
         line-height: 1.35em;
-        color: $secondary-color;
+        color: $tertiary-color;
         opacity: 0;
-        transition: 0.5s 0.2s;
+        transition: opacity 0.5s 0.2s, transform 0.1s 0.2s, color 0.1s 0.2s;
+        transform-origin: 50% 50%;
+        transform: scale(0.5) skewY(180deg);
       }
 
       @media (max-width: $md - 1) {
