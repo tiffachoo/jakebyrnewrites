@@ -70,10 +70,13 @@ export default {
       margin-bottom: $space-main;
       padding-bottom: $space-main;
       @include line-hover(40%);
+      
 
-      &:hover {
-        .item-hover-text {
-          opacity: 1;
+      @media (min-width: $sm) {
+        &:hover {
+          .item-hover-text {
+            opacity: 1;
+          }
         }
       }
     }
@@ -85,7 +88,7 @@ export default {
     }
     
     &-hover-text {
-      @media (min-width: $md) {
+      @media (min-width: $sm) {
         position: fixed;
         z-index: -1;
         top: $space-offset-top;
