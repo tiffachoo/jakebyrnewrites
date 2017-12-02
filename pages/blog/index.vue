@@ -3,11 +3,18 @@
     <Hero title="Blog"></Hero>
 
     <section class="container">
-      <ul class="content grid blog-items">
-        <li class="grid-col-50 blog-item" v-for="post in posts">
+      <ul 
+        v-if="posts" 
+        class="content grid blog-items">
+        <li 
+          v-for="post in posts"
+          class="grid-col-50 blog-item">
           <article-preview :post="post"></article-preview>
         </li>
       </ul>
+      <div v-else class="content">
+        <p>No blog posts.</p>
+      </div>
     </section>
 
   </div>
