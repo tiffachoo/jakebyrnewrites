@@ -23,6 +23,11 @@
 <style lang="scss">
   @import "../assets/scss/variables";
 
+  #__layout {
+    width: 100%;
+    min-height: 100%;
+  }
+
   body {
     min-height: 100vh;
     display: flex;
@@ -148,6 +153,7 @@
   }
 
   .wrap {
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
