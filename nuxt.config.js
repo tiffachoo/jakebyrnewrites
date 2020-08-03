@@ -133,7 +133,8 @@ const config = {
           ...postType.fields.find(field => field.id === 'tags').items.validations[0].in.map(tag => `/tags/${tag}`)
         ]
       })
-    }
+    },
+    fallback: true
   },
 
   /*
