@@ -17,7 +17,7 @@
     "eslint-plugin-html": "^2.0.0",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
-    "nuxt": "^1.4.5",
+    "nuxt": "^3.0.0",
     "rxjs": "^5.5.2",
     "vue-markdown": "^2.2.4",
     "contentful-import": "^4.5.4",
